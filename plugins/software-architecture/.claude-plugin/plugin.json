@@ -1,0 +1,14 @@
+{
+    "name": "software-architecture",
+    "displayName": "Software Architecture",
+    "version": "0.1.0",
+    "description": "Plugin that includes useful tools for designing and managing software architecture",
+    "author": {
+        "name": "Michael Collins",
+        "email": "mfcollins3@me.com",
+        "url": "https://michaelfcollins3.dev"
+    },
+    "homepage": "https://github.com/mfcollins3/claude-code-software-architecture-plugin",
+    "license": "MIT",
+    "keywords": ["architecture", "software", "adr"]
+}

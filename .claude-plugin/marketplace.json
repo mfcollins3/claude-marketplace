@@ -1,0 +1,16 @@
+{
+    "name": "michaelfcollins3",
+    "description": "Claude Code plugins developed by Michael F. Collins, III",
+    "owner": {
+        "name": "Michael Collins",
+        "email": "mfcollins3@me.com",
+        "url": "https://michaelfcollins3.dev"
+    },
+    "plugins": [
+        {
+            "name": "software-architecture",
+            "source": "./plugins/software-architecture",
+            "description": "Software architecture tools for building software products"
+        }
+    ]
+}
