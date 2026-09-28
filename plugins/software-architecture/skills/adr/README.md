@@ -54,3 +54,65 @@ For example, you can add the following block to your agent instructions file:
   [Architectural Decision Records](https://adr.github.io).
 * Use the `adr` skill to write the Architectural Decision Record document.
 ```
+
+The skill can also be invoked directly with the `/adr` command, followed by
+free-form text describing what you want to do. The wording you use determines
+which task the skill performs.
+
+## Examples
+
+### Creating a new ADR
+
+```plain
+/adr Create an ADR about using PostgreSQL instead of MongoDB for persisting
+order data, since we need strong transactional guarantees across orders and
+inventory.
+```
+
+This drafts a new `docs/adrs/draft-postgresql-for-order-data.md` file in the
+`proposed` state, using the [template](resources/template.md), and adds it to
+the `docs/adrs/README.md` index. The skill will ask follow-up questions if it
+needs more detail, such as who the decision-makers are or what other options
+were considered.
+
+### Editing a proposed ADR
+
+```plain
+/adr Edit the PostgreSQL ADR to add read replicas as a considered option.
+```
+
+This updates the matching `proposed` ADR in `docs/adrs`, refreshing its `date`
+field and adding the new option. If the skill can't tell which ADR you mean,
+it will ask you to clarify (e.g., by number or title).
+
+### Approving a proposed ADR
+
+```plain
+/adr Approve ADR "PostgreSQL for order data"
+```
+
+This moves the ADR from `proposed` to `accepted`, assigns it the next
+available ADR number, renames it from `draft-{title}.md` to `{number}-{title}.md`,
+and updates the `docs/adrs/README.md` index accordingly.
+
+### Rejecting a proposed ADR
+
+```plain
+/adr Reject ADR-0004, we decided to stick with MongoDB for now because the
+migration cost outweighs the benefit this quarter.
+```
+
+This sets the ADR's status to `rejected`, records the reason, renames it to
+`rejected-{title}.md`, and updates the index.
+
+### Deprecating an accepted ADR
+
+```plain
+/adr Deprecate ADR-0002 since ADR-0007 supersedes it with a new caching
+strategy.
+```
+
+This sets the accepted ADR's status to `deprecated`, records why, and updates
+the index. Use the "Create" task instead (with a note that it supersedes an
+existing ADR) when the new decision should also mark the old one as
+superseded rather than merely deprecated.
