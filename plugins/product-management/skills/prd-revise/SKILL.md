@@ -41,7 +41,10 @@ Keep the requirement ID unchanged.
 After approval:
 
 1. Edit only the requirement being revised. Do not reword anything else.
-2. Add an entry to the Decisions Log with the date, what changed, the rationale,
+2. If the feature's name changed and the PRD has a table of contents, update its
+   entry so the link text and anchor match the new heading (for example
+   `### 5.2 User sign-in` is `#52-user-sign-in`).
+3. Add an entry to the Decisions Log with the date, what changed, the rationale,
    and who decided.
 
 ## 4. Update the GitHub issue

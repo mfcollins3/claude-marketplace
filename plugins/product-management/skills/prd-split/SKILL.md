@@ -51,7 +51,11 @@ After approval:
 2. Insert the second requirement directly after it, using the same format.
    Number its heading to follow the original's and renumber the headings that
    follow, if the PRD uses numbered headings.
-3. Add an entry to the Decisions Log with the date, the split, the rationale,
+3. If the PRD has a table of contents, add an entry for the new feature and
+   update the entries for any renumbered or renamed features, so that each link's
+   text and anchor match its heading (for example `### 5.2 User sign-in` is
+   `#52-user-sign-in`).
+4. Add an entry to the Decisions Log with the date, the split, the rationale,
    and who decided.
 
 ## 4. Update GitHub

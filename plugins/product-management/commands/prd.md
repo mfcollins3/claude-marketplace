@@ -49,7 +49,14 @@ $ARGUMENTS
    - All other headings should use sentence case.
 
 5. **Structure**: Organize the PRD according to the
-   [provided outline](#prd-template). Add relevant subheadings as needed.
+   [provided outline](#prd-template). Add relevant subheadings as needed. Keep
+   the table of contents directly below the document title, with one link per
+   numbered section and, nested under section 5, one link per feature. Replace
+   the template's placeholder feature entries with the real features, using
+   each feature's number and name. Make each link's anchor match its heading
+   using GitHub's rules (lowercase, punctuation removed, spaces replaced by
+   hyphens), for example `### 5.1 User sign-in` is `#51-user-sign-in`. Update
+   the links if you rename, renumber, add or remove a section or feature.
 
 6. **Detail Level**:
 
@@ -121,6 +128,19 @@ steps:
 ```markdown
 # [Product Name] - Product Requirements Document
 
+## Table of contents
+
+- [1. Product Overview](#1-product-overview)
+- [2. User Personas](#2-user-personas)
+- [3. Principles & Constraints](#3-principles--constraints)
+- [4. Release Plan (High Level)](#4-release-plan-high-level)
+- [5. Current Version: v1.0 Requirements](#5-current-version-v10-requirements)
+  - [5.1 Feature name](#51-feature-name)
+  - [5.2 Feature name](#52-feature-name)
+- [6. Non-Functional Requirements](#6-non-functional-requirements)
+- [7. Open Questions](#7-open-questions)
+- [8. Decisions Log](#8-decisions-log)
+
 ## 1. Product Overview
 
 ### 1.1 Problem Statement
@@ -172,7 +192,7 @@ Brief description of what "done" looks like for v1.
 
 ## 5. Current Version: v1.0 Requirements
 
-### 5.1 Feature: [Feature Name]
+### 5.1 [Feature Name]
 
 **Requirement ID:** [e.g., GH-001]
 
@@ -187,7 +207,7 @@ Brief description of what "done" looks like for v1.
 
 **Priority:** Must-have | Should-have | Nice-to-have
 
-### 5.2 Feature: [Feature Name]
+### 5.2 [Feature Name]
 
 (repeat pattern)
 
