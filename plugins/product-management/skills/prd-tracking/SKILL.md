@@ -33,35 +33,23 @@ Rules:
 - Leave criteria that are only partly met, or that you did not verify,
   unchecked. Tell the user what remains.
 - Do not reword, add, remove, or reorder criteria while checking them off.
-- If the work reveals that a requirement needs to change, do not edit it
-  yourself. Describe the change to the user and, if they agree, record it under
-  **Open Questions** or **Decisions Log** in the PRD.
+- If the work reveals that a requirement needs to change or is too big, do not
+  edit it yourself. Describe the problem to the user and suggest the `prd-revise`
+  or `prd-split` skill. If they would rather not change it now, record it under
+  **Open Questions** in the PRD.
 
 ## 3. Update the GitHub issue
 
 Do this only if the requirement has a GitHub issue. Issues created from the PRD
-have the title format `[{requirement_id}] {user_story}`.
+have the title format `[{requirement_id}] {user_story}`. Use the `github-issues`
+skill.
 
-1. Find the issue:
-
-   ```bash
-   gh issue list --repo {repository} --state all --search "[{requirement_id}] in:title"
-   ```
-
-   If you cannot determine the repository or find exactly one matching issue,
-   skip this step and tell the user.
-
-2. If some criteria are still unchecked, add a comment summarizing progress:
-
-   ```bash
-   gh issue comment {issue_number} --repo {repository} --body "{progress summary}"
-   ```
-
-3. If every criterion for the requirement is checked, close the issue:
-
-   ```bash
-   gh issue close {issue_number} --repo {repository} --comment "All acceptance criteria are met."
-   ```
+1. Find the issue by requirement ID. If you cannot determine the repository or
+   find exactly one matching issue, skip this step and tell the user.
+2. If some criteria are still unchecked, comment on the issue with a summary of
+   progress.
+3. If every criterion for the requirement is checked, close the issue with the
+   comment "All acceptance criteria are met."
 
 Do not reopen or edit issues that the user has closed or changed on their own.
 

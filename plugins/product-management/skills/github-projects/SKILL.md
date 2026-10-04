@@ -3,8 +3,8 @@ name: github-projects
 description: >
   Creates GitHub Projects, links them to repositories, and adds GitHub issues
   to them using the GitHub CLI (gh). Use when the user asks to create a GitHub
-  project, track a release or roadmap in GitHub Projects, or create issues for
-  user stories and add them to a project.
+  project, or track a release or roadmap in GitHub Projects. To create or edit
+  the issues themselves, use the github-issues skill.
 ---
 # GitHub Projects Skill
 
@@ -13,8 +13,7 @@ following features are supported:
 
 1. [Create a new GitHub Project](#1-create-a-new-github-project)
 2. [Link a GitHub Project to a repository](#2-link-a-github-project-to-a-repository)
-3. [Create an issue](#3-create-an-issue)
-4. [Add an issue to a GitHub Project](#4-add-an-issue-to-a-github-project)
+3. [Add an issue to a GitHub Project](#3-add-an-issue-to-a-github-project)
 
 Before running any command, confirm that `gh` is installed and authenticated
 with `gh auth status`. If it is not authenticated, ask the user to run
@@ -57,27 +56,10 @@ To link the project to the repository, run the following command:
 gh project link {project_number} --owner {owner} --repo {repository}
 ```
 
-## 3. Create an issue
+## 3. Add an issue to a GitHub Project
 
-To create an issue, provide the following information:
-
-- **Repository**: The repository to create the issue in, in the format
-  `owner/repo`.
-- **Title**: The issue title.
-- **Body**: The issue body, such as acceptance criteria.
-
-Write the body to a temporary file, or pipe it on stdin, so that Markdown and
-special characters are passed through unchanged. Then run:
-
-```bash
-gh issue create --repo {repository} --title "{title}" --body-file -
-```
-
-The command prints the URL of the new issue.
-
-## 4. Add an issue to a GitHub Project
-
-To add an existing issue to a project, provide the following information:
+Use the `github-issues` skill to create, find, or edit the issue itself. To add
+an existing issue to a project, provide the following information:
 
 - **Project Number**: The number of the project.
 - **Owner**: The owner of the project.

@@ -55,14 +55,47 @@ left on the PRD?", or run it directly, optionally with a path to the PRD:
 /product-management:prd-status
 ```
 
+### PRD Revise Skill
+
+The `prd-revise` skill changes a requirement in `prd.md`, such as its user
+story, acceptance criteria, or priority, and updates the matching GitHub issue.
+It shows you the proposed change before writing anything, asks whether to uncheck
+criteria that no longer hold, and records the change in the Decisions Log. Claude
+only runs it when you ask:
+
+```text
+/product-management:prd-revise GH-003 Allow sign-in with a passkey as well
+```
+
+### PRD Split Skill
+
+The `prd-split` skill splits a requirement that is too big into two. The original
+requirement keeps its ID, and the second gets the next unused ID. Acceptance
+criteria, including ones already checked, are divided between the two. The
+original GitHub issue is updated, and a new issue is created in the same GitHub
+Project. Claude only runs it when you ask:
+
+```text
+/product-management:prd-split GH-003
+```
+
 ### GitHub Projects Skill
 
 The `github-projects` skill uses the GitHub CLI (`gh`) to:
 
 - Create a GitHub Project
 - Link a project to a repository
-- Create an issue
 - Add an issue to a project
+
+### GitHub Issues Skill
+
+The `github-issues` skill uses the GitHub CLI (`gh`) to:
+
+- Create an issue
+- Find an issue
+- Edit an issue
+- Comment on an issue
+- Close or reopen an issue
 
 ## Prerequisites
 

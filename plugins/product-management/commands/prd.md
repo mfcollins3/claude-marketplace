@@ -108,10 +108,10 @@ steps:
    title format: "{project_title}: v{version}".
 3. After creating the project, link it to the GitHub repository if possible. If
    you cannot determine the repository, ask the user to specify it.
-4. For each user story in the PRD, use the `github-projects` skill to create an
-   issue in the repository, then add it to the project. Use the format
-   "[{requirement_id}] {user_story}" for the issue title, and include the
-   acceptance criteria in the issue body.
+4. For each user story in the PRD, use the `github-issues` skill to create an
+   issue in the repository, then use the `github-projects` skill to add it to
+   the project. Use the format "[{requirement_id}] {user_story}" for the issue
+   title, and include the acceptance criteria in the issue body.
 5. After adding all user stories as issues, provide the user with a summary of
    the created GitHub project, including the project URL and a list of the
    created issues with their URLs.
