@@ -66,8 +66,8 @@ $ARGUMENTS
      with each run of non-alphanumeric characters replaced by a single hyphen
      (for example `GH-001-user-sign-in.md`).
    - Group related requirements under `### 5.N` headings in section 5 of
-     `README.md`, and list every feature as a row in its group's table, in ID
-     order, linking to its file. A group may have a single requirement.
+     `README.md`, and list every feature as a row in its group's table,
+     linking to its file. A group may have a single requirement.
    - Use relative paths for all links between files.
 
 6. **Detail Level**:
@@ -210,7 +210,7 @@ Brief description of what "done" looks like for v1.
 ## 5. Current Version: v1.0 Requirements
 
 Requirements are grouped by area. Each group has one table with one row per
-requirement, in ID order. Each requirement is described in its own file in
+requirement. Each requirement is described in its own file in
 `features/`.
 
 ### 5.1 [Feature group name]

@@ -45,7 +45,8 @@ After approval, change only `README.md`:
 
 1. Remove the requirement's row from its current group's table. Keep the row's
    text, link, and priority exactly as they are.
-2. Add the row to the target group's table, in ID order. For a new group, add a
+2. Add the row to the end of the target group's table, unless the user says
+   where it goes. Do not reorder other rows. For a new group, add a
    `### 5.N {group name}` heading with a table that has the same columns as the
    other groups.
 3. If a group was added or removed, renumber the headings of the groups after
