@@ -37,6 +37,10 @@ revision, then wait for approval before writing anything. Also tell the user:
   if the revision means it no longer holds.
 - Whether the revision affects other requirements, such as dependencies or
   Out of Scope items.
+- Any text elsewhere in the PRD that describes the old behavior, such as the
+  overview, Open Questions, or the Decisions Log. Search `README.md` and the
+  other feature files for it. List each place, and ask whether to update it.
+  Never leave it unmentioned, but do not change it without approval.
 
 Keep the requirement ID unchanged.
 
@@ -46,7 +50,8 @@ After approval:
 
 1. Edit only the requirement's feature file. Do not reword anything else.
 2. If the feature's name changed, rename the file to match the new slug (use
-   `git mv` if the file is tracked), and update the feature's row in the index
+   `git mv` if the file is tracked, or `mv` if `git mv` is not available), and
+   update the feature's row in the index
    table in `README.md` so its text and link match. Also search the PRD
    directory for other links to the old file name and update them. If the
    priority changed, update the row's priority too.
@@ -68,5 +73,6 @@ skill.
 
 ## 5. Report
 
-Tell the user what changed in the PRD, which issue was updated, and anything you
+Tell the user what changed in the PRD, which issue was updated, any text
+elsewhere in the PRD that still describes the old behavior, and anything you
 skipped.

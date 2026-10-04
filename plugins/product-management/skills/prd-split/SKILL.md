@@ -52,7 +52,8 @@ After approval:
 
 1. Rewrite the original requirement's feature file as the first requirement. If
    its feature name changed, rename the file to match the new slug (use
-   `git mv` if the file is tracked), update its row in the index table, and
+   `git mv` if the file is tracked, or `mv` if `git mv` is not available),
+   update its row in the index table, and
    update any other links to the old file name in the PRD directory.
 2. Create a feature file for the second requirement at
    `features/{new_requirement_id}-{slug}.md`, using the same format as the

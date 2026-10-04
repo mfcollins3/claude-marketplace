@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- `prd-revise` now lists text elsewhere in the PRD that describes the old
+  behavior, and asks before changing it.
+- `prd-revise` and `prd-split` use `mv` when `git mv` is not available.
+- Requirements within a feature group no longer have to be in ID order, and
+  `prd-move` adds a moved requirement to the end of the target group.
+
 ## [0.1.0] - 2026-10-03
 
 ### Added
