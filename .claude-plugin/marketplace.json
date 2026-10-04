@@ -8,6 +8,11 @@
     },
     "plugins": [
         {
+            "name": "product-management",
+            "source": "./plugins/product-management",
+            "description": "Plugin for managing software products, roadmaps, and scope"
+        },
+        {
             "name": "software-architecture",
             "source": "./plugins/software-architecture",
             "description": "Software architecture tools for building software products"

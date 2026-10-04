@@ -11,6 +11,7 @@ agents for real-world software development workflows.
 | Plugin | Description |
 | --- | --- |
 | [Software Architecture](plugins/software-architecture/README.md) | Software architecture tools intended to help you build better software products. |
+| [Product Management](plugins/product-management/README.md) | Tools for writing PRDs, creating GitHub Projects, and scoping releases. |
 
 ## Installing the Marketplace
 

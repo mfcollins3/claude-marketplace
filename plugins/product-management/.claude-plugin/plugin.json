@@ -1,0 +1,20 @@
+{
+    "name": "product-management",
+    "displayName": "Product Management",
+    "version": "0.1.0",
+    "description": "Plugin for managing software products, roadmaps, and scope",
+    "author": {
+        "name": "Michael Collins",
+        "email": "mfcollins3@me.com",
+        "url": "https://michaelfcollins3.dev"
+    },
+    "homepage": "https://github.com/mfcollins3/claude-marketplace",
+    "license": "MIT",
+    "keywords": [
+        "product",
+        "management",
+        "roadmap",
+        "scope",
+        "software"
+    ]
+}
