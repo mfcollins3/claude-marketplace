@@ -9,7 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- `prd` agent for writing product requirements documents.
+- `/product-management:prd` command for writing product requirements documents
+  from a product description.
 - `github-projects` skill for creating GitHub Projects, linking them to
   repositories, creating issues, and adding issues to projects using the GitHub
   CLI.

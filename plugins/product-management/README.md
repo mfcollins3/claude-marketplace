@@ -8,12 +8,22 @@ GitHub issues on that project.
 
 ## What's Included
 
-### Product Requirements Document Agent
+### Product Requirements Document Command
 
-The `prd` agent interviews you about a product or feature, reviews the
-codebase, and writes a PRD to `prd.md` in your workspace after you approve it.
-It can then create a GitHub Project for the release and add one issue per user
-story.
+The `/product-management:prd` command interviews you about a product or
+feature, reviews the codebase, and writes a PRD to `prd.md` in your workspace
+after you approve it. It can then create a GitHub Project for the release and
+add one issue per user story.
+
+Follow the command with a description of the product or feature:
+
+```text
+/product-management:prd A mobile app that lets neighbors share tools
+```
+
+The command uses your description as its starting point and only asks about
+what is missing. It runs in your main conversation, so you can answer its
+questions and request revisions to the draft.
 
 ### GitHub Projects Skill
 
