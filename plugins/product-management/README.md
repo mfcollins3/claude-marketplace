@@ -11,9 +11,24 @@ GitHub issues on that project.
 ### Product Requirements Document Command
 
 The `/product-management:prd` command interviews you about a product or
-feature, reviews the codebase, and writes a PRD to `prd.md` in your workspace
-after you approve it. It can then create a GitHub Project for the release and
-add one issue per user story.
+feature, reviews the codebase, and writes a PRD to the `docs/prd/` directory in
+your workspace after you approve it. It can then create a GitHub Project for the
+release and add one issue per user story.
+
+The PRD is split into files so that it stays manageable as it grows. The index
+holds the overview, personas, principles, release plan, non-functional
+requirements, open questions, and decisions log, plus a table of the
+requirements. Each requirement has its own file, named by its requirement ID:
+
+```text
+docs/prd/
+  README.md
+  features/
+    GH-001-user-sign-in.md
+    GH-002-password-reset.md
+```
+
+To write the PRD somewhere else, say so in your description.
 
 Follow the command with a description of the product or feature:
 
@@ -27,9 +42,10 @@ questions and request revisions to the draft.
 
 ### PRD Tracking Skill
 
-The `prd-tracking` skill keeps `prd.md` up to date as work is completed. When
+The `prd-tracking` skill keeps the PRD up to date as work is completed. When
 Claude finishes and verifies work that satisfies a requirement, the skill
-checks off that requirement's acceptance criteria and, if the requirement has a
+checks off that requirement's acceptance criteria in its feature file and, if
+the requirement has a
 GitHub issue, comments on the issue or closes it once every criterion is met.
 The skill never rewords criteria. Changes to scope are raised with you first.
 
@@ -40,16 +56,19 @@ project that contains the PRD:
 ```markdown
 ## Product requirements
 
-When you complete and verify work that satisfies a requirement in `prd.md`, use
-the `prd-tracking` skill to check off its acceptance criteria.
+The product requirements are in `docs/prd/`. Read `docs/prd/README.md` for
+context, and the feature file in `docs/prd/features/` for the requirement you
+are working on. When you complete and verify work that satisfies a requirement,
+use the `prd-tracking` skill to check off its acceptance criteria.
 ```
 
 ### PRD Status Skill
 
-The `prd-status` skill reports progress against `prd.md`: overall completion,
+The `prd-status` skill reports progress against the PRD: overall completion,
 the status of each requirement, the acceptance criteria that remain, and any
 open questions. It only reads the PRD and never changes it. Ask Claude "what's
-left on the PRD?", or run it directly, optionally with a path to the PRD:
+left on the PRD?", or run it directly, optionally with the path to the PRD
+directory:
 
 ```text
 /product-management:prd-status
@@ -57,8 +76,9 @@ left on the PRD?", or run it directly, optionally with a path to the PRD:
 
 ### PRD Revise Skill
 
-The `prd-revise` skill changes a requirement in `prd.md`, such as its user
+The `prd-revise` skill changes a requirement in the PRD, such as its user
 story, acceptance criteria, or priority, and updates the matching GitHub issue.
+If the feature is renamed, it renames the feature file and updates the index.
 It shows you the proposed change before writing anything, asks whether to uncheck
 criteria that no longer hold, and records the change in the Decisions Log. Claude
 only runs it when you ask:
@@ -71,12 +91,25 @@ only runs it when you ask:
 
 The `prd-split` skill splits a requirement that is too big into two. The original
 requirement keeps its ID, and the second gets the next unused ID. Acceptance
-criteria, including ones already checked, are divided between the two. The
-original GitHub issue is updated, and a new issue is created in the same GitHub
+criteria, including ones already checked, are divided between the two, and the
+second gets a new feature file. The original GitHub issue is updated, and a new
+issue is created in the same GitHub
 Project. Claude only runs it when you ask:
 
 ```text
 /product-management:prd-split GH-003
+```
+
+### PRD Move Skill
+
+The `prd-move` skill moves a requirement to a different feature group, or into a
+new one, by changing the PRD's index. It asks before removing a group that the
+move leaves empty, updates the table of contents, and records the move in the
+Decisions Log. The feature file and GitHub issue are unchanged. Claude only runs
+it when you ask:
+
+```text
+/product-management:prd-move GH-003 Authentication
 ```
 
 ### GitHub Projects Skill

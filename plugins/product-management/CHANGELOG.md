@@ -10,7 +10,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - `/product-management:prd` command for writing product requirements documents
-  from a product description.
+  from a product description. It writes an index and one file per feature to
+  `docs/prd/`.
 - `prd-tracking` skill for checking off PRD acceptance criteria as work is
   completed and updating the matching GitHub issues.
 - `prd-status` skill for reporting progress against a PRD's acceptance
@@ -19,6 +20,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   GitHub issue.
 - `prd-split` skill for splitting a requirement that is too big into two,
   updating the existing GitHub issue and creating a new one.
+- `prd-move` skill for moving a requirement to another feature group in the
+  PRD.
 - `github-projects` skill for creating GitHub Projects, linking them to
   repositories, and adding issues to projects using the GitHub CLI.
 - `github-issues` skill for creating, finding, editing, commenting on, closing,

@@ -17,9 +17,11 @@ $ARGUMENTS
 - You will ask questions of the user to obtain the necessary information needed
   to write the PRD. Ask follow-up questions when necessary to seek clarification
   on your task.
-- Use the [PRD Template](#prd-template) as the template for the generated PRD.
-- Unless directed to write the PRD to a specific location, write the PRD to
-  `prd.md` in the root directory of the workspace.
+- Use the [PRD Templates](#prd-templates) as the templates for the generated
+  PRD. The PRD is an index file (`README.md`) plus one file per feature in a
+  `features` subdirectory.
+- Unless directed to write the PRD to a specific location, write the PRD to the
+  `docs/prd/` directory in the workspace.
 
 ## Instructions for Creating the PRD
 
@@ -49,14 +51,24 @@ $ARGUMENTS
    - All other headings should use sentence case.
 
 5. **Structure**: Organize the PRD according to the
-   [provided outline](#prd-template). Add relevant subheadings as needed. Keep
-   the table of contents directly below the document title, with one link per
-   numbered section and, nested under section 5, one link per feature. Replace
-   the template's placeholder feature entries with the real features, using
-   each feature's number and name. Make each link's anchor match its heading
-   using GitHub's rules (lowercase, punctuation removed, spaces replaced by
-   hyphens), for example `### 5.1 User sign-in` is `#51-user-sign-in`. Update
-   the links if you rename, renumber, add or remove a section or feature.
+   [provided templates](#prd-templates). Add relevant subheadings as needed.
+
+   - Keep the table of contents in `README.md` directly below the document
+     title, with one link per numbered section and, nested under section 5,
+     one link per feature group. Replace the template's placeholder group
+     entries with the real groups. Make each link's anchor match its heading
+     using GitHub's rules (lowercase, punctuation removed, spaces replaced by
+     hyphens), for example `### 5.1 Authentication` is `#51-authentication`.
+     Update the links if you rename, renumber, add or remove a section or
+     group.
+   - Write one feature file per requirement ID in `features/`, named
+     `{requirement_id}-{slug}.md`. The slug is the feature name in lowercase,
+     with each run of non-alphanumeric characters replaced by a single hyphen
+     (for example `GH-001-user-sign-in.md`).
+   - Group related requirements under `### 5.N` headings in section 5 of
+     `README.md`, and list every feature as a row in its group's table, in ID
+     order, linking to its file. A group may have a single requirement.
+   - Use relative paths for all links between files.
 
 6. **Detail Level**:
 
@@ -95,8 +107,9 @@ $ARGUMENTS
    - If the user requests changes, make the necessary edits and confirm the
      final version with the user.
    - If the user approves:
-      - Save the PRD to `prd.md` in the root directory of the workspace. If
-        that file already exists, ask the user before overwriting it.
+      - Save `README.md` and every feature file to the PRD directory
+        (`docs/prd/` by default). If the directory already contains a PRD,
+        ask the user before overwriting it.
       - Ask the user if they would like to create a GitHub project for the
         release. If so, follow the steps in the
         [Create a GitHub Project](#create-a-github-project) section below.
@@ -118,12 +131,16 @@ steps:
 4. For each user story in the PRD, use the `github-issues` skill to create an
    issue in the repository, then use the `github-projects` skill to add it to
    the project. Use the format "[{requirement_id}] {user_story}" for the issue
-   title, and include the acceptance criteria in the issue body.
+   title, and include the acceptance criteria in the issue body, followed by a
+   line naming the feature file, for example
+   `Spec: docs/prd/features/GH-001-user-sign-in.md`.
 5. After adding all user stories as issues, provide the user with a summary of
    the created GitHub project, including the project URL and a list of the
    created issues with their URLs.
 
-## PRD Template
+## PRD Templates
+
+### Index template (`README.md`)
 
 ```markdown
 # [Product Name] - Product Requirements Document
@@ -135,8 +152,8 @@ steps:
 - [3. Principles & Constraints](#3-principles--constraints)
 - [4. Release Plan (High Level)](#4-release-plan-high-level)
 - [5. Current Version: v1.0 Requirements](#5-current-version-v10-requirements)
-  - [5.1 Feature name](#51-feature-name)
-  - [5.2 Feature name](#52-feature-name)
+  - [5.1 Feature group name](#51-feature-group-name)
+  - [5.2 Feature group name](#52-feature-group-name)
 - [6. Non-Functional Requirements](#6-non-functional-requirements)
 - [7. Open Questions](#7-open-questions)
 - [8. Decisions Log](#8-decisions-log)
@@ -192,22 +209,18 @@ Brief description of what "done" looks like for v1.
 
 ## 5. Current Version: v1.0 Requirements
 
-### 5.1 [Feature Name]
+Requirements are grouped by area. Each group has one table with one row per
+requirement, in ID order. Each requirement is described in its own file in
+`features/`.
 
-**Requirement ID:** [e.g., GH-001]
+### 5.1 [Feature group name]
 
-**User Story:** As a [persona], I want to [action] so that [outcome].
+| ID | Feature | Priority |
+| --- | --- | --- |
+| GH-001 | [Feature name](features/GH-001-feature-name.md) | Must-have |
+| GH-002 | [Feature name](features/GH-002-feature-name.md) | Should-have |
 
-**Acceptance Criteria:**
-
-- [ ] Criterion 1
-- [ ] Criterion 2
-
-**Technical Notes:** Any implementation guidance for the AI agent.
-
-**Priority:** Must-have | Should-have | Nice-to-have
-
-### 5.2 [Feature Name]
+### 5.2 [Feature group name]
 
 (repeat pattern)
 
@@ -230,4 +243,25 @@ make assumptions.
 
 (Track key decisions so AI agents have context for WHY things are the way they
 are)
+```
+
+### Feature template (`features/{requirement_id}-{slug}.md`)
+
+```markdown
+# GH-001: [Feature Name]
+
+[Back to the PRD](../README.md)
+
+**Requirement ID:** [e.g., GH-001]
+
+**User Story:** As a [persona], I want to [action] so that [outcome].
+
+**Acceptance Criteria:**
+
+- [ ] Criterion 1
+- [ ] Criterion 2
+
+**Technical Notes:** Any implementation guidance for the AI agent.
+
+**Priority:** Must-have | Should-have | Nice-to-have
 ```

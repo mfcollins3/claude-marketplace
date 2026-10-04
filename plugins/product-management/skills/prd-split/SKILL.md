@@ -1,26 +1,28 @@
 ---
 name: prd-split
 description: >
-  Splits a requirement in a Product Requirements Document (prd.md) that is too
-  big into two requirements, and updates the existing GitHub issue and creates a
-  new one so the PRD and GitHub stay in sync. Use when the user says a user
-  story is too large.
+  Splits a requirement in a Product Requirements Document (the docs/prd/
+  directory) that is too big into two requirements, and updates the existing
+  GitHub issue and creates a new one so the PRD and GitHub stay in sync. Use
+  when the user says a user story is too large.
 argument-hint: "[requirement ID] [how to split it]"
 disable-model-invocation: true
 ---
 # PRD Split Skill
 
-Use this skill to split one requirement in `prd.md` into two, and to keep GitHub
-in sync. `prd.md` is the source of truth.
+Use this skill to split one requirement in the PRD into two, and to keep GitHub
+in sync. The PRD is the source of truth. It is a directory with an index
+(`README.md`) and one file per requirement in `features/`.
 
 The user provided: $ARGUMENTS
 
 ## 1. Find the requirement
 
-1. Locate the PRD. It is `prd.md` in the root of the workspace unless the user
+1. Locate the PRD directory. It is `docs/prd/` in the workspace unless the user
    says otherwise. If there is no PRD, stop and tell the user.
-2. Identify the requirement by its ID (for example `GH-001`) or feature name. If
-   it is unclear, ask the user.
+2. Identify the requirement by its ID (for example `GH-001`) or feature name,
+   and find its file by matching `features/{ID}-*.md` or by looking it up in the
+   index table in `README.md`. If it is unclear, ask the user.
 
 ## 2. Propose the split
 
@@ -29,7 +31,8 @@ Propose the split and wait for approval before writing anything. Show:
 - **First requirement**: keeps the original ID. Give its feature name, user
   story, acceptance criteria, and priority.
 - **Second requirement**: gets the next unused ID. Find it by scanning the PRD
-  for the highest existing ID with the same prefix and adding one. Give its
+  the index table and the names of the files in `features/` for the highest
+  existing ID with the same prefix and adding one. Give its
   feature name, user story, acceptance criteria, and priority.
 
 Rules:
@@ -47,16 +50,18 @@ Rules:
 
 After approval:
 
-1. Rewrite the original requirement as the first requirement.
-2. Insert the second requirement directly after it, using the same format.
-   Number its heading to follow the original's and renumber the headings that
-   follow, if the PRD uses numbered headings.
-3. If the PRD has a table of contents, add an entry for the new feature and
-   update the entries for any renumbered or renamed features, so that each link's
-   text and anchor match its heading (for example `### 5.2 User sign-in` is
-   `#52-user-sign-in`).
-4. Add an entry to the Decisions Log with the date, the split, the rationale,
-   and who decided.
+1. Rewrite the original requirement's feature file as the first requirement. If
+   its feature name changed, rename the file to match the new slug (use
+   `git mv` if the file is tracked), update its row in the index table, and
+   update any other links to the old file name in the PRD directory.
+2. Create a feature file for the second requirement at
+   `features/{new_requirement_id}-{slug}.md`, using the same format as the
+   other feature files.
+3. Add the second requirement's row to the index table in `README.md`, directly
+   after the original's row, in the same feature group. Update the original's row if its name or priority
+   changed. Do not change any other file or renumber anything.
+4. Add an entry to the Decisions Log in `README.md` with the date, the split,
+   the rationale, and who decided.
 
 ## 4. Update GitHub
 
@@ -67,7 +72,9 @@ Do this only if the original requirement has a GitHub issue. Use the
    repository or find exactly one issue, skip this section and tell the user.
 2. Edit the original issue so its title and body match the first requirement.
 3. Create a new issue titled `[{new_requirement_id}] {user_story}`, with the
-   second requirement's acceptance criteria in the body.
+   second requirement's acceptance criteria in the body, followed by a line
+   naming its feature file, for example
+   `Spec: docs/prd/features/GH-004-user-sign-in-with-passkey.md`.
 4. Find which GitHub Project the original issue is in, as described in the
    `github-issues` skill. That gives you the project's title, which you match to
    a project number. Use the `github-projects` skill to add the new issue to
