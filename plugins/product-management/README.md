@@ -25,6 +25,36 @@ The command uses your description as its starting point and only asks about
 what is missing. It runs in your main conversation, so you can answer its
 questions and request revisions to the draft.
 
+### PRD Tracking Skill
+
+The `prd-tracking` skill keeps `prd.md` up to date as work is completed. When
+Claude finishes and verifies work that satisfies a requirement, the skill
+checks off that requirement's acceptance criteria and, if the requirement has a
+GitHub issue, comments on the issue or closes it once every criterion is met.
+The skill never rewords criteria. Changes to scope are raised with you first.
+
+Claude decides when to use skills, so it may occasionally skip this one. For
+reliable behavior, add an instruction like this to the `CLAUDE.md` file of the
+project that contains the PRD:
+
+```markdown
+## Product requirements
+
+When you complete and verify work that satisfies a requirement in `prd.md`, use
+the `prd-tracking` skill to check off its acceptance criteria.
+```
+
+### PRD Status Skill
+
+The `prd-status` skill reports progress against `prd.md`: overall completion,
+the status of each requirement, the acceptance criteria that remain, and any
+open questions. It only reads the PRD and never changes it. Ask Claude "what's
+left on the PRD?", or run it directly, optionally with a path to the PRD:
+
+```text
+/product-management:prd-status
+```
+
 ### GitHub Projects Skill
 
 The `github-projects` skill uses the GitHub CLI (`gh`) to:

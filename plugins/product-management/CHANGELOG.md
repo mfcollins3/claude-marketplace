@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - `/product-management:prd` command for writing product requirements documents
   from a product description.
+- `prd-tracking` skill for checking off PRD acceptance criteria as work is
+  completed and updating the matching GitHub issues.
+- `prd-status` skill for reporting progress against a PRD's acceptance
+  criteria.
 - `github-projects` skill for creating GitHub Projects, linking them to
   repositories, creating issues, and adding issues to projects using the GitHub
   CLI.
