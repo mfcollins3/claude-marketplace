@@ -1,0 +1,14 @@
+{
+    "name": "issue-driven-development",
+    "displayName": "Issue-Driven Development",
+    "version": "0.1.0",
+    "description": "Plugin that makes Claude Code plan work on a GitHub issue, get the plan reviewed, and then implement it",
+    "author": {
+        "name": "Michael Collins",
+        "email": "mfcollins3@me.com",
+        "url": "https://michaelfcollins3.dev"
+    },
+    "homepage": "https://github.com/mfcollins3/claude-marketplace",
+    "license": "MIT",
+    "keywords": ["github", "issues", "planning", "workflow"]
+}

@@ -21,6 +21,11 @@
             "name": "conventional-commits",
             "source": "./plugins/conventional-commits",
             "description": "Helps write Git commit messages that follow the Conventional Commits specification"
+        },
+        {
+            "name": "issue-driven-development",
+            "source": "./plugins/issue-driven-development",
+            "description": "Makes Claude Code plan work on a GitHub issue, get the plan reviewed, and then implement it"
         }
     ]
 }
