@@ -1,0 +1,14 @@
+{
+    "name": "conventional-commits",
+    "displayName": "Conventional Commits",
+    "version": "0.1.0",
+    "description": "Plugin that helps to write and format Git commit messages following the Conventional Commits specification",
+    "author": {
+        "name": "Michael Collins",
+        "email": "mfcollins3@me.com",
+        "url": "https://michaelfcollins3.dev"
+    },
+    "homepage": "https://github.com/mfcollins3/claude-marketplace",
+    "license": "MIT",
+    "keywords": ["commit", "conventional", "git"]
+}

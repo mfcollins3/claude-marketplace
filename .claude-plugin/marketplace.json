@@ -16,6 +16,11 @@
             "name": "software-architecture",
             "source": "./plugins/software-architecture",
             "description": "Software architecture tools for building software products"
+        },
+        {
+            "name": "conventional-commits",
+            "source": "./plugins/conventional-commits",
+            "description": "Helps write Git commit messages that follow the Conventional Commits specification"
         }
     ]
 }
