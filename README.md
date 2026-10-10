@@ -12,6 +12,7 @@ agents for real-world software development workflows.
 | --- | --- |
 | [Software Architecture](plugins/software-architecture/README.md) | Software architecture tools intended to help you build better software products. |
 | [Product Management](plugins/product-management/README.md) | Tools for writing PRDs, creating GitHub Projects, and scoping releases. |
+| [Conventional Commits](plugins/conventional-commits/README.md) | Helps Claude Code write Git commit messages that follow the Conventional Commits specification. |
 
 ## Installing the Marketplace
 
