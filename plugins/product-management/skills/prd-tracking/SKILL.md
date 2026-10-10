@@ -54,7 +54,9 @@ skill.
 2. If some criteria are still unchecked, comment on the issue with a summary of
    progress.
 3. If every criterion for the requirement is checked, close the issue with the
-   comment "All acceptance criteria are met."
+   comment "All acceptance criteria are met." If the work is going into a pull
+   request that closes the issue (`Closes #N`), comment instead and leave the
+   issue open, so that merging the pull request closes it.
 
 Do not reopen or edit issues that the user has closed or changed on their own.
 

@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- `prd-tracking` comments instead of closing the issue when a pull request
+  will close it.
+
 ## [0.1.1] - 2026-10-03
 
 ### Changed
