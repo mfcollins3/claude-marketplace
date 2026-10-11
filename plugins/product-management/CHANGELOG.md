@@ -7,7 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- `project-upgrade` skill for adding the `Todo`, `Planning`, `Ready`,
+  `In Progress`, `Review`, and `Done` Status values to an existing GitHub
+  Project.
+
 ### Changed
+
+- `github-projects` sets up those Status values on new projects, and puts issues
+  it adds to a project in the `Todo` status.
 
 - `prd-tracking` comments instead of closing the issue when a pull request
   will close it.

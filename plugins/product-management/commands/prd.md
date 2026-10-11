@@ -125,7 +125,9 @@ steps:
    to specify it.
 2. Use the `github-projects` skill to create a new GitHub project for the
    release. If the user did not specify a project title to use, use the project
-   title format: "{project_title}: v{version}".
+   title format: "{project_title}: v{version}". The skill also sets up the
+   project's Status values (`Todo`, `Planning`, `Ready`, `In Progress`, `Review`,
+   and `Done`).
 3. After creating the project, link it to the GitHub repository if possible. If
    you cannot determine the repository, ask the user to specify it.
 4. For each user story in the PRD, use the `github-issues` skill to create an
@@ -133,10 +135,13 @@ steps:
    the project. Use the format "[{requirement_id}] {user_story}" for the issue
    title, and include the acceptance criteria in the issue body, followed by a
    line naming the feature file, for example
-   `Spec: docs/prd/features/GH-001-user-sign-in.md`.
+   `Spec: docs/prd/features/GH-001-user-sign-in.md`. The `github-projects`
+   skill creates each issue in the `Todo` status.
 5. After adding all user stories as issues, provide the user with a summary of
    the created GitHub project, including the project URL and a list of the
-   created issues with their URLs.
+   created issues with their URLs. Remind the user that GitHub can move closed
+   issues to `Done` automatically: in the project's **Workflows**, enable **Item
+   closed** and set its status to `Done`.
 
 ## PRD Templates
 

@@ -116,9 +116,30 @@ it when you ask:
 
 The `github-projects` skill uses the GitHub CLI (`gh`) to:
 
-- Create a GitHub Project
+- Create a GitHub Project with the Status values `Todo`, `Planning`, `Ready`,
+  `In Progress`, `Review`, and `Done`
 - Link a project to a repository
-- Add an issue to a project
+- Add an issue to a project, in the `Todo` status
+
+The [Issue-Driven Development plugin](../issue-driven-development/README.md)
+moves each issue through the other statuses as it is planned, implemented, and
+reviewed.
+
+### Project Upgrade Skill
+
+The `project-upgrade` skill adds the Status values above to an existing GitHub
+Project, such as one created before they were introduced. It keeps the options
+the project already has, so issues keep their status, shows what will change
+before it changes anything, and offers to set `Todo` on items that have no
+status. Claude only runs it when you ask:
+
+```text
+/product-management:project-upgrade 3
+```
+
+To have GitHub move issues to `Done` when they are closed, open the project,
+choose **Workflows**, enable **Item closed**, and set its status to `Done`. This
+can only be done in the web interface.
 
 ### GitHub Issues Skill
 

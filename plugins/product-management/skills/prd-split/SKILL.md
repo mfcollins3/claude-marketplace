@@ -79,7 +79,7 @@ Do this only if the original requirement has a GitHub issue. Use the
 4. Find which GitHub Project the original issue is in, as described in the
    `github-issues` skill. That gives you the project's title, which you match to
    a project number. Use the `github-projects` skill to add the new issue to
-   that project. If the issue is in no project, skip this step. If you cannot
+   that project, where it starts in the `Todo` status. If the issue is in no project, skip this step. If you cannot
    tell which project, ask the user.
 5. Comment on each issue linking to the other and saying the story was split.
 6. If the original issue was closed but the first requirement still has
