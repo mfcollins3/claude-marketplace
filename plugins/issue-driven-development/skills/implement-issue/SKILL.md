@@ -29,11 +29,20 @@ The issue must be open.
 
 ## 2. Check the approval gate
 
-Stop and tell the user to use `plan-issue` unless both are true:
+Use the `issue-project` skill to find the issue's project item. Stop if the
+issue is not in a project: a product owner or project manager must add it, and
+you must not.
+
+Then stop and tell the user to use `plan-issue` unless both are true:
 
 - A comment on the issue contains the `<!-- issue-driven-development:plan -->`
   marker.
 - The issue has the `plan-approved` label.
+
+If the label is present but the project status is `Planning`, the plan was
+approved by hand in GitHub. Set the status to `Ready` with the `issue-project`
+skill and tell the user. If the status is anything other than `Ready` (or
+`In Progress`, when resuming), tell the user and ask before continuing.
 
 Then compare timing. Get when the label was applied and when the plan comment
 was last edited:
@@ -59,7 +68,8 @@ concerns, stop and summarize them, and suggest revising the plan with
    hyphens, without the requirement ID prefix.
 
 The plugin's hook only allows edits on a branch like this, so do not edit files
-before this step.
+before this step. Once the branch exists, use the `issue-project` skill to set
+the status to `In Progress`.
 
 ## 4. Implement the plan
 
@@ -111,6 +121,10 @@ The body has a summary, the completed tasks, any deviations from the plan, and
 how it was verified. End it with `Closes #{number}` when every task is done. If
 work remains, use `Refs #{number}` instead and offer to open a draft pull
 request (`--draft`).
+
+When the pull request is ready for review, use the `issue-project` skill to
+move the issue to `Review`. A draft pull request is not ready for review, so
+leave the issue `In Progress`.
 
 ## 10. Update the issue and report
 

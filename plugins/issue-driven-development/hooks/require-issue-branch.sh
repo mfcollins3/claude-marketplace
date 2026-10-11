@@ -51,7 +51,7 @@ fi
 cat >&2 <<MSG
 Change blocked: this repository's current branch ($branch) is not an issue branch.
 Changes require a GitHub issue with an approved plan. Use the plan-issue skill to
-create or plan an issue. Once the plan has the plan-approved label, the user can
+plan an issue that is in a GitHub Project. Once the plan is approved, the user can
 run implement-issue, which creates the issue branch. Do not work around this
 block by editing files through Bash.
 MSG
