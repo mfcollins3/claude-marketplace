@@ -1,7 +1,6 @@
 ---
 name: adr
 description: Assists with creating and managing Architectural Decision Records (ADRs) for software projects.
-disable-model-invocation: true
 ---
 # Architectural Decision Record Skill
 

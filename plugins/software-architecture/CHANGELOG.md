@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- I removed the `disable-model-invocation` attribute from the ADR skill
+  frontmatter. This field prevented other skills and coding agent operations
+  from being able to directly use the `adr` skill.
+
 ## [0.1.1] - 2026-10-03
 
 ### Fixed

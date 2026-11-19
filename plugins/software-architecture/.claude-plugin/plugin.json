@@ -1,7 +1,7 @@
 {
     "name": "software-architecture",
     "displayName": "Software Architecture",
-    "version": "0.1.1",
+    "version": "0.2.0",
     "description": "Plugin that includes useful tools for designing and managing software architecture",
     "author": {
         "name": "Michael Collins",
